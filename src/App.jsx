@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { Productos } from './Components/Productos'
+import { Products } from './Components/Products'
 
 function App() {
   const [products, setProducts] = useState([])
+  const [shop, setShop] = useState([])
 
   const getProducts = async () =>{
     let reponse = await fetch("https://fakestoreapi.com/products")
@@ -15,6 +16,10 @@ function App() {
     getProducts()
   },[])
 
+  const buyProducts = (idProduct) =>{
+    setShop([...shop,idProduct])
+  }
+
   if(products.length == 0){
     return<>
       <h1>Cargando...</h1>
@@ -23,7 +28,7 @@ function App() {
   return (
     <>
       <h1>Fake Store</h1>
-      <Productos products={products}/>
+      <Products products={products} buyProducts={buyProducts}/>
     </>
   )
 }
