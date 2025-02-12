@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { Products } from './Components/Products'
+import { Productos } from './Components/Productos'
 
 function App() {
   const [products, setProducts] = useState([])
@@ -23,8 +23,7 @@ function App() {
   return (
     <>
       <h1>Fake Store</h1>
-      <p>{products[5].title}</p>
-      <Products products={products[5]}/>
+      <Productos products={products}/>
     </>
   )
 }
